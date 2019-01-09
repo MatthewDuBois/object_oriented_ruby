@@ -12,3 +12,30 @@
 chef_knives = {style: "gyuto", steel: "white carbon", bevel: "1 sided" }
 slicers = {style: "sujihiki", steel: "blue super", bevel: "90/10"}
 utility = {:style => "honesuki", :steel => "tool steel", bevel: "50/50"}
+
+class Knives
+  attr_reader :style, :steel, :bevel
+  attr_writer :steel, :bevel, :style
+  
+  def initialize(input_style, input_steel, input_bevel)
+    @style = input_style
+    @steel = input_steel
+    @bevel = input_bevel
+  end
+
+  def print_info
+    puts "#{ @style } #{ @steel } #{ @bevel }"
+  end  
+
+end  
+
+knife_1 = Knives.new("gyuto", "white 2", "80/20")
+knife_1.print_info
+p knife_1
+p knife_1.steel
+p knife_1.style
+p knife_1.bevel
+
+
+
+  
