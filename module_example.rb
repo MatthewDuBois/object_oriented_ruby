@@ -1,36 +1,31 @@
 #Modules
 
-
-
-module Turnable
+module Moveables
+  
   def turn(new_direction)
     @direction = new_direction
   end
-end  
-
-module Accelerator
+  
   def accelerate
     @speed += 10
-  end
-end  
+  end  
 
-module Stoppable
   def brake
     @speed = 0
   end
 end  
 
-module Initializer 
-  def initialize
-    @speed = 0
-    @direction = 'north'
-  end
-end
 
 ########################################
 
 class Car
-  
+  include Moveables
+
+  def initialize
+    @speed = 0
+    @direction = 'north'
+  end
+
   def honk_horn
     puts "Beeeeeeep!"
   end
@@ -39,6 +34,12 @@ end
 ######################################
 
 class Bike
+  include Moveables
+
+  def initialize
+    @speed = 0
+    @direction = 'north'
+  end
 
   def ring_bell
     puts "Ring ring!"
